@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Flight Map | 6E Virtual</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('6e-virtual-theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+
+        .map-page { display: flex; flex-direction: column; height: 100vh; background: var(--bg-dark); }
+
+        .map-page-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(6, 6, 15, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        [data-theme="light"] .map-page-header { background: rgba(244, 244, 248, 0.9); }
+
+        .map-page-title { display: flex; align-items: center; gap: 1rem; }
+
+        .map-page-title .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            text-decoration: none; color: inherit;
+        }
+
+        .map-page-title .logo-icon { width: 36px; height: 36px; }
+
+        .map-page-title .logo-text {
+            font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+            color: var(--text-primary);
+        }
+        .map-page-title .logo-text span { color: var(--color-primary-bright); }
+
+        .map-page-title h1 {
+            font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+            color: var(--text-primary);
+            padding-left: 1rem; border-left: 1px solid var(--border-color);
+        }
+
+        .map-page-controls { display: flex; align-items: center; gap: 1rem; }
+
+        .map-page-body { display: flex; flex: 1; min-height: 0; }
+        .map-main { flex: 1; position: relative; }
+        #flight-map { width: 100%; height: 100%; background: #080810; }
+
+        .flight-sidebar {
+            width: 340px;
+            background: rgba(6, 6, 15, 0.6);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--border-color);
+            overflow-y: auto; display: flex; flex-direction: column;
+        }
+
+        [data-theme="light"] .flight-sidebar { background: rgba(244, 244, 248, 0.9); }
+
+        .sidebar-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .sidebar-header h2 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
+        .sidebar-header .flight-count { font-size: 0.85rem; color: var(--text-muted); }
+
+        #flight-list {
+            flex: 1; padding: 0.75rem;
+            display: flex; flex-direction: column; gap: 0.5rem;
+        }
+
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: var(--color-primary-light);
+            border-color: rgba(26, 26, 142, 0.3);
+            color: var(--text-primary);
+        }
+        .btn-back svg { width: 16px; height: 16px; }
+
+        @media (max-width: 768px) {
+            .flight-sidebar { display: none; }
+            .map-page-header { padding: 0.75rem 1rem; }
+            .map-page-title h1 { display: none; }
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(6, 6, 15, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        [data-theme="light"] .leaflet-popup-content-wrapper {
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .leaflet-popup-content { margin: 0; }
+        .leaflet-popup-tip { background: rgba(6, 6, 15, 0.95); }
+        [data-theme="light"] .leaflet-popup-tip { background: rgba(255, 255, 255, 0.98); }
+    </style>
+</head>
+<body>
+    <div class="map-page">
+        <header class="map-page-header">
+            <div class="map-page-title">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-dark.png" alt="6E Virtual" class="logo-icon logo-dark">
+                    <img src="images/logo-light.png" alt="6E Virtual" class="logo-icon logo-light">
+                    <span class="logo-text">6E <span>Virtual</span></span>
+                </a>
+                <h1>Live Flight Map</h1>
+            </div>
+
+            <div class="map-page-controls">
+                <div class="live-indicator">
+                    <span class="dot"></span>
+                    <span id="flight-count">0</span> Flights Active
+                </div>
+
+                <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <a href="index.html" class="btn-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Home
+                </a>
+            </div>
+        </header>
+
+        <div class="map-page-body">
+            <div class="map-main">
+                <div id="flight-map"></div>
+            </div>
+
+            <aside class="flight-sidebar">
+                <div class="sidebar-header">
+                    <h2>Active Flights</h2>
+                    <span class="flight-count"><span id="sidebar-flight-count">0</span> flights</span>
+                </div>
+                <div id="flight-list">
+                    <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                        Loading flights...
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/map.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // FlightMap.init(); // Uncomment when backend proxy is configured
+
+            const observer = new MutationObserver(() => {
+                const count = document.getElementById('flight-count')?.textContent || '0';
+                const sidebarCount = document.getElementById('sidebar-flight-count');
+                if (sidebarCount) sidebarCount.textContent = count;
+            });
+
+            const flightCountEl = document.getElementById('flight-count');
+            if (flightCountEl) {
+                observer.observe(flightCountEl, { childList: true, characterData: true, subtree: true });
+            }
+        });
+    </script>
+</body>
+</html>

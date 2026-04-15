@@ -1,0 +1,324 @@
+/* ============================================
+   6E Virtual - Components v3.0
+   Clean, Professional
+   ============================================ */
+
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.7rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-primary);
+    font-weight: 700; font-size: 0.85rem;
+    border: none; cursor: pointer;
+    transition: all var(--transition-base);
+    letter-spacing: 0.02em;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--white);
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(43, 45, 110, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-bright);
+    background: var(--color-primary-light);
+}
+
+.btn-large {
+    padding: 0.9rem 2.2rem;
+    font-size: 0.9rem;
+}
+
+.btn svg { width: 16px; height: 16px; }
+
+
+/* ============================================
+   Feature Cards
+   ============================================ */
+
+.feature-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute; top: 0; left: 24px; right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(43, 45, 110, 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-card:hover::before { opacity: 0.5; }
+
+.feature-icon {
+    width: 48px; height: 48px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-icon svg { width: 22px; height: 22px; stroke: var(--white); }
+
+.feature-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.7; font-size: 0.9rem;
+}
+
+
+/* ============================================
+   Rank Cards
+   ============================================ */
+
+.rank-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+    transition: all var(--transition-base);
+}
+
+.rank-card:hover {
+    border-color: rgba(43, 45, 110, 0.25);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.rank-number {
+    font-family: var(--font-primary);
+    font-size: 1.3rem; font-weight: 700;
+    color: rgba(43, 45, 110, 0.25);
+    min-width: 30px; flex-shrink: 0;
+    text-align: center;
+}
+
+.rank-icon {
+    width: 48px; height: 48px;
+    background: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; overflow: hidden;
+}
+
+.rank-icon svg { width: 22px; height: 22px; color: var(--color-primary); }
+.rank-image { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+
+.rank-info { flex: 1; }
+
+.rank-name {
+    font-family: var(--font-primary);
+    font-weight: 700; color: var(--text-primary);
+    font-size: 0.92rem;
+}
+
+.rank-requirements {
+    font-size: 0.8rem; color: var(--text-muted);
+    margin-top: 1px;
+}
+
+
+/* ============================================
+   Badges
+   ============================================ */
+
+.hero-badge {
+    display: inline-flex; align-items: center;
+    gap: var(--spacing-xs);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 0.8rem; font-weight: 500;
+    background: var(--color-primary-light);
+    border: 1px solid rgba(43, 45, 110, 0.15);
+    color: var(--color-primary-bright);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-badge .pulse {
+    width: 7px; height: 7px;
+    background: var(--color-success);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+
+/* ============================================
+   Ticker Strip
+   ============================================ */
+
+.ticker-strip {
+    width: 100%; overflow: hidden;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ticker-track {
+    display: flex;
+    animation: ticker-scroll 45s linear infinite;
+    width: max-content;
+}
+
+.ticker-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0 2rem;
+    white-space: nowrap;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.ticker-dot {
+    width: 3px; height: 3px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+
+/* ============================================
+   Partner Logos
+   ============================================ */
+
+.partner-logo {
+    padding: 1.25rem 2.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    display: flex; align-items: center; justify-content: center;
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.partner-logo:hover {
+    border-color: rgba(43, 45, 110, 0.25);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.partner-name {
+    font-family: var(--font-primary);
+    font-size: 1rem; font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+}
+
+.partner-logo:hover .partner-name { color: var(--text-secondary); }
+
+
+/* ============================================
+   CTA Banner
+   ============================================ */
+
+.cta-banner {
+    position: relative;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    text-align: center;
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, transparent, rgba(43, 45, 110, 0.06), transparent);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cta-banner > * { position: relative; z-index: 1; }
+
+.cta-banner h2 {
+    font-family: var(--font-primary);
+    font-size: 2.4rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.cta-banner p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-lg);
+    max-width: 450px; margin-left: auto; margin-right: auto;
+}
+
+
+/* ============================================
+   Flight Cards (map page)
+   ============================================ */
+
+.flight-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex; align-items: center; gap: var(--spacing-sm);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.flight-card:hover { border-color: var(--color-primary); transform: translateX(3px); }
+
+.flight-icon {
+    width: 40px; height: 40px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+
+.flight-icon svg { width: 18px; height: 18px; fill: var(--color-primary); }
+.flight-info { flex: 1; min-width: 0; }
+.flight-number { font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem; }
+.flight-route { color: var(--text-muted); font-size: 0.78rem; }
+
+.flight-status {
+    padding: 3px 8px; border-radius: var(--radius-full);
+    font-size: 0.68rem; font-weight: 600;
+    text-transform: uppercase; flex-shrink: 0;
+}
+
+.status-cruise { background: rgba(59,130,246,0.1); color: var(--color-info); }
+.status-climb { background: rgba(34,197,94,0.1); color: var(--color-success); }
+.status-descent { background: rgba(245,158,11,0.1); color: var(--color-warning); }

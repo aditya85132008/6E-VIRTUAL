@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer | 6E Virtual</title>
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('6e-virtual-theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1A1A8E;
+            --primary-bright: #2B2DB8;
+            --secondary: #E8B931;
+            --bg-dark: #06060F;
+            --bg-secondary: #0C0C1A;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #F4F4F8;
+            --bg-secondary: #EAEAF0;
+            --text-primary: #0E0E2C;
+            --text-secondary: #555568;
+            --border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Bauhaus Medium', 'Outfit', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .legal-container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .legal-header .brand {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.75rem; margin-bottom: 1.5rem;
+        }
+
+        .legal-header .brand-text {
+            font-family: 'Bauhaus Medium', 'Outfit', sans-serif;
+            font-size: 1.5rem; font-weight: 700; color: var(--primary-bright);
+        }
+
+        .legal-header h1 {
+            font-family: 'Bauhaus Medium', 'Outfit', sans-serif;
+            font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-bright), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .legal-header .subtitle { color: var(--text-secondary); font-size: 1rem; }
+
+        .effective-date {
+            display: inline-block;
+            background: rgba(26, 26, 142, 0.12);
+            color: var(--primary-bright);
+            padding: 0.5rem 1rem; border-radius: 20px;
+            font-size: 0.875rem; margin-top: 1rem;
+        }
+
+        .important-notice {
+            background: linear-gradient(135deg, rgba(232, 185, 49, 0.12), rgba(232, 185, 49, 0.04));
+            border: 1px solid rgba(232, 185, 49, 0.25);
+            border-radius: 12px; padding: 1.5rem; margin-bottom: 2.5rem;
+        }
+
+        .important-notice h3 {
+            color: var(--secondary); font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .important-notice p { color: var(--text-primary); font-size: 0.95rem; }
+
+        .legal-section { margin-bottom: 2.5rem; }
+
+        .legal-section h2 {
+            font-family: 'Bauhaus Medium', 'Outfit', sans-serif;
+            font-size: 1.25rem; font-weight: 700; color: var(--text-primary);
+            margin-bottom: 1rem; padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary); display: inline-block;
+        }
+
+        .legal-section p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem; }
+        .legal-section p:last-child { margin-bottom: 0; }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--primary-bright); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--secondary); }
+
+        .legal-footer {
+            margin-top: 4rem; padding-top: 2rem;
+            border-top: 1px solid var(--border-color); text-align: center;
+        }
+        .legal-footer p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .legal-footer .version { color: #666; font-size: 0.8rem; }
+
+        .legal-nav { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .legal-nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .legal-nav a:hover { color: var(--primary-bright); }
+
+        .theme-toggle {
+            display: flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color); border-radius: 12px;
+            cursor: pointer; transition: all 0.3s ease; color: var(--text-secondary);
+        }
+        [data-theme="light"] .theme-toggle { background: rgba(0, 0, 0, 0.04); }
+        .theme-toggle:hover { background: rgba(26, 26, 142, 0.1); border-color: var(--primary-bright); color: var(--primary-bright); }
+        .theme-toggle svg { width: 20px; height: 20px; }
+        .theme-toggle .icon-sun { display: block; }
+        .theme-toggle .icon-moon { display: none; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: none; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+        @media (max-width: 768px) {
+            .legal-container { padding: 2rem 1.5rem; }
+            .legal-header h1 { font-size: 2rem; }
+            .legal-section h2 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-container">
+        <div class="top-bar">
+            <a href="index.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Home
+            </a>
+            <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+
+        <header class="legal-header">
+            <div class="brand"><span class="brand-text">6E Virtual</span></div>
+            <h1>Disclaimer</h1>
+            <p class="subtitle">A Flight Simulation Community Project</p>
+            <span class="effective-date">Effective Date: April 2026</span>
+        </header>
+
+        <div class="important-notice">
+            <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Important Notice
+            </h3>
+            <p>6E Virtual is a flight simulation entertainment platform. This is NOT a real airline. All information provided is for virtual aviation purposes only and must never be used for real-world flight operations.</p>
+        </div>
+
+        <section class="legal-section">
+            <h2>1. No Affiliation with Real-World Airlines</h2>
+            <p>6E Virtual is an independent virtual airline operated for flight simulation entertainment purposes only. We are NOT affiliated with, endorsed by, sponsored by, or in any way connected to IndiGo, InterGlobe Aviation Private Limited, or any real-world airline, aviation authority, or commercial aviation entity.</p>
+            <p>The use of the IndiGo-inspired branding is solely for flight simulation purposes within the virtual aviation community. All trademarks, service marks, trade names, and logos referenced herein belong to their respective owners.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. Flight Simulation Purpose</h2>
+            <p>All services, tools, and features provided by 6E Virtual, including but not limited to flight tracking, pilot rankings, and route networks, are designed exclusively for use within flight simulation software such as Microsoft Flight Simulator, X-Plane, and Prepar3D.</p>
+            <p>Nothing on this website or within our tools should be construed as real aviation guidance, training, or operational procedures. Our content is not suitable for real-world aviation operations and must never be used for actual flight planning, navigation, or aircraft operation.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. No Professional Aviation Advice</h2>
+            <p>The information, procedures, and data provided through 6E Virtual services are simplified for entertainment purposes and do not represent actual airline Standard Operating Procedures (SOPs). This information should not be used as a substitute for proper flight training, professional aviation guidance, or certified aviation materials.</p>
+            <p>If you require real aviation information or training, please consult certified flight instructors, aviation authorities (such as DGCA, FAA, or EASA), and approved training materials.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. Third-Party Services</h2>
+            <p>6E Virtual integrates with third-party services including vAMSYS, SimBrief, and Discord. We are not responsible for the availability, accuracy, or functionality of these external services. Your use of third-party services is subject to their respective terms of service and privacy policies.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Accuracy of Information</h2>
+            <p>While we strive to provide accurate flight data and information, we make no warranties or representations regarding the accuracy, completeness, or reliability of any information presented on this website.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by applicable law, 6E Virtual and its operators, developers, and volunteers shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, our services.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Changes to This Disclaimer</h2>
+            <p>We reserve the right to modify or update this disclaimer at any time without prior notice. Your continued use of 6E Virtual services after any changes constitutes acceptance of the revised disclaimer.</p>
+        </section>
+
+        <footer class="legal-footer">
+            <p>&copy; 2026 6E Virtual.</p>
+            <p>Not affiliated with IndiGo or InterGlobe Aviation Pvt. Ltd.</p>
+            <p class="version">Document Version: 1.0</p>
+            <nav class="legal-nav">
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('6e-virtual-theme', newTheme);
+        }
+    </script>
+</body>
+</html>

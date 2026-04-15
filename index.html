@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6E Virtual | India's Premier Virtual Airline</title>
+    <meta name="description" content="6E Virtual — Experience India's skies in flight simulation. Join our community of virtual aviators flying the IndiGo network.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+    <script>
+        (function() {
+            const saved = localStorage.getItem('6e-virtual-theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Fonts: Bauhaus Medium (local) + Outfit (fallback) + Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="bg-atmosphere"></div>
+
+    <!-- ============================================
+         Navigation
+         ============================================ -->
+    <nav id="navbar" style="transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-dark.png" alt="6E Virtual" class="logo-icon logo-dark">
+                <img src="images/logo-light.png" alt="6E Virtual" class="logo-icon logo-light">
+                <span class="logo-text">6E <span>Virtual</span></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#ranks">Ranks</a>
+                <!-- <a href="#map">Live Map</a> -->
+                <a href="#partners">Partners</a>
+            </div>
+
+            <div class="nav-cta">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <a href="#" class="btn btn-primary" target="_blank">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ============================================
+         Hero
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge" style="animation: fadeInUp 0.6s ease-out;">
+                <span class="pulse"></span>
+                Now Recruiting Pilots
+            </div>
+
+            <h1>
+                Fly The <span class="gradient-text">6E Way</span>,<br>
+                Virtually.
+            </h1>
+
+            <p class="hero-subtitle">
+                Experience India's busiest skies from your simulator. Join a growing community of virtual pilots flying the iconic IndiGo network across 150+ destinations.
+            </p>
+
+            <div class="hero-ctas">
+                <a href="#" class="btn btn-primary btn-large" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                    Start Flying
+                </a>
+                <a href="#features" class="btn btn-outline btn-large">
+                    Learn More
+                </a>
+            </div>
+
+            <div class="hero-social">
+                <a href="https://discord.gg/jCjDeH5Kcd" class="social-link" target="_blank" title="Discord">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>                
+                </a>
+            </div>
+        </div>
+
+        <!--<div class="scroll-cue">
+            <span>Scroll</span>
+            <div class="scroll-cue-line"></div>
+        </div>-->
+    </section>
+
+
+    <!-- Ticker
+    <div class="ticker-strip">
+        <div class="ticker-track">
+            <div class="ticker-item"><span class="ticker-dot"></span>MSFS · X-Plane · Prepar3D</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>150+ Destinations</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>vAMSYS Powered</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>A320neo · ATR 72</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Domestic & International</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Free to Join</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Active Discord Community</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>SimBrief Integration</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>MSFS · X-Plane · Prepar3D</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>150+ Destinations</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>vAMSYS Powered</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>A320neo · ATR 72</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>A320neo · ATR 72</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>A320neo · ATR 72</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Domestic & International</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Free to Join</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>Active Discord Community</div>
+            <div class="ticker-item"><span class="ticker-dot"></span>SimBrief Integration</div>
+        </div>
+    </div> -->
+
+
+    <!-- ============================================
+         Statistics (COMMENTED OUT)
+         ============================================ -->
+    <!--
+    <section class="stats-section" id="stats">...</section>
+    -->
+
+
+    <!-- ============================================
+         Live Flight Map (COMMENTED OUT)
+         ============================================ -->
+    <!--
+    <section class="map-section" id="map">...</section>
+    -->
+
+
+    <!-- ============================================
+         Features
+         ============================================ -->
+    <section class="features-section" id="features">
+        <div class="section-header reveal" style="flex-direction:column;align-items:center;text-align:center;">
+            <div class="section-line"></div>
+            <h2 class="section-title">Why Fly <span class="gradient-text">6E Virtual</span></h2>
+            <p class="section-subtitle">Everything you need for a realistic IndiGo simulation experience</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Realistic Operations</h3>
+                <p>Fly authentic IndiGo routes with accurate schedules, real-world procedures, and a fleet roster built for immersion.</p>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
+                </div>
+                <h3>Expansive Network</h3>
+                <p>Access 150+ domestic and international destinations across India, the Middle East, and Southeast Asia.</p>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h3>Active Community</h3>
+                <p>Join a passionate group of simmers on Discord. Group flights, events, and mentorship for all skill levels.</p>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <h3>Rank Progression</h3>
+                <p>Climb through pilot ranks from Cadet to Captain. Each promotion earned through hours flown and flights completed.</p>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Multi-Simulator</h3>
+                <p>Fly on MSFS, X-Plane, or Prepar3D. Our system works seamlessly with all major flight simulation platforms.</p>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3>vAMSYS Powered</h3>
+                <p>Built on the vAMSYS platform for reliable PIREP tracking, ACARS integration, and automated flight logging.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Separator -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         EFB (COMMENTED OUT)
+         ============================================ -->
+    <!--
+    <section class="efb-section" id="efb">...</section>
+    -->
+
+
+    <!-- ============================================
+         Ranks
+         ============================================ -->
+    <section class="ranks-section" id="ranks">
+        <div class="ranks-header reveal">
+            <div class="section-line"></div>
+            <h2>Pilot <span class="gradient-text">Ranks</span></h2>
+            <p>Progress through the ranks as you build your flight hours and experience</p>
+        </div>
+
+        <div class="ranks-grid">
+            <div class="rank-card reveal reveal-delay-1">
+                <div class="rank-number">01</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">Cadet</div><div class="rank-requirements">Entry rank — 0 hours</div></div>
+            </div>
+            <!--<div class="rank-card reveal reveal-delay-2">
+                <div class="rank-number">02</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">Second Officer</div><div class="rank-requirements">Placeholder — TBD hours</div></div>
+            </div>-->
+            <div class="rank-card reveal reveal-delay-3">
+                <div class="rank-number">03</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">First Officer</div><div class="rank-requirements">Placeholder — TBD hours</div></div>
+            </div>
+            <div class="rank-card reveal reveal-delay-4">
+                <div class="rank-number">04</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">Senior First Officer</div><div class="rank-requirements">Placeholder — TBD hours</div></div>
+            </div>
+            <div class="rank-card reveal reveal-delay-5">
+                <div class="rank-number">05</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">Captain</div><div class="rank-requirements">Placeholder — TBD hours</div></div>
+            </div>
+            <div class="rank-card reveal reveal-delay-6">
+                <div class="rank-number">06</div>
+                <div class="rank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="rank-info"><div class="rank-name">Senior Captain</div><div class="rank-requirements">Placeholder — TBD hours</div></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Separator -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+    PARTNERS SECTION
+    Add this before the Footer in index.html
+    ============================================ -->
+
+    <!-- Partners Section -->
+    <section class="partners-section" id="partners">
+        <div class="partners-header">
+            <h2>Our <span class="gradient-text">Partners</span></h2>
+            <p>Partnered with the world's leading virtual aviation networks.</p>
+        </div>
+        <div class="partners-grid">
+            
+            <!-- Partner 1: Golden Age Aviation -->
+            <a href="https://www.akasavirtual.com/" class="partner-logo" target="_blank">
+                <img src="Images/Akasa.png" alt="Akasa Virtual">
+            </a>
+            
+            <!-- Partner 2: Add more partners like this -->
+            
+            <!--<a href="https://spicejetva.org/" class="partner-logo" target="_blank">
+                <img src="Images/Partners/spicejet.png" alt="SpiceJet Virtual">
+            </a>-->
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         CTA
+         ============================================ -->
+    <section class="cta-banner reveal">
+        <h2>Ready to <span class="gradient-text">Take Off</span>?</h2>
+        <p>Join our community of virtual pilots. Free to join, easy to start.</p>
+        <a href="#" class="btn btn-primary btn-large" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            Join 6E Virtual
+        </a>
+    </section>
+
+
+    <!-- ============================================
+         Footer
+         ============================================ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo-dark.png" alt="6E Virtual" class="logo-icon logo-dark">
+                        <img src="images/logo-light.png" alt="6E Virtual" class="logo-icon logo-light">
+                        <span class="logo-text">6E <span>Virtual</span></span>
+                    </a>
+                    <p class="footer-description">A virtual airline for flight simulation enthusiasts. Not affiliated with IndiGo or InterGlobe Aviation Ltd.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Fly</h4>
+                    <ul>
+                        <li><a href="#">Join 6E Virtual</a></li>
+                        <li><a href="#">Pilot Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/jCjDeH5Kcd" target="_blank">Discord</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#ranks">Ranks</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 6E Virtual. Not affiliated with IndiGo or InterGlobe Aviation Ltd.</p>
+                <div class="footer-social">
+                    <a href="https://discord.gg/jCjDeH5Kcd" target="_blank" title="Discord">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>                    
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
